@@ -13,20 +13,20 @@ exports.create = (req, res) => {
   }
 
   // Create a Tutorial
-  const User = {
+  const newUser = {
     userName: req.body.userName,
     Password: req.body.Password
   };
 
   // Save Tutorial in the database
-  User.create(User)
+  User.create(newUser)
     .then(data => {
       res.send(data);
     })
     .catch(err => {
       res.status(500).send({
         message:
-          err.message || "Some error occurred while creating the Tutorial."
+          err.message || "Some error occurred while creating the user."
       });
     });
 };
