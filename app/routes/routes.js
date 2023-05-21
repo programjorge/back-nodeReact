@@ -1,5 +1,6 @@
 module.exports = app => {
   const Users = require("../controllers/User.controller.js");
+  const Products = require("../controllers/Products.controller.js")
 
   var router = require("express").Router();
   // Create a new User
@@ -7,6 +8,8 @@ module.exports = app => {
 
   // Retrieve all User
   router.get("/", Users.findAll)
+
+  router.get("/products", Products.findAll)
 
   // // Retrieve all published Tutorials
   // router.get("/published", tutorials.findAllPublished);
