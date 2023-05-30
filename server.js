@@ -36,7 +36,12 @@ db.sequelize.sync({ force: true })
       {name: "Teclado Gaming mini mecánico Ozone ", price: 72.99, image: "https://www.vsgamers.es/thumbnails/product_gallery_large/uploads/products/ozone/4_TECLADOS/tactical/galeria/teclado-gaming-mini-mecanico-ozone-tactical-galeria-2.jpg", categoryId:3},
       {name: "COMBO GAMING PREMIUM MCPX", price: 144.90, image: "https://cdn.nedis.com/images/products_high_res/GCK41100BKUS_P51.JPG", categoryId:4},
       {name: "GTX GeForce RTX 2090", price: 44.50, image: "https://thumb.pccomponentes.com/w-530-530/articles/23/233569/1.jpg", categoryId:5},
-    ]))
+    ])).then(
+      db.comentary.bulkCreate([
+        {description: "porfin, estaba esperando con ansias esta actualizacion de graficos", productId:1},
+        {description: "porfin, estaba esperando con ansias esta actualizacion de graficos2", productId:1},
+      ])
+    )
     console.log("Synced db.");
   })
   .catch((err) => {
