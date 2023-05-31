@@ -25,3 +25,24 @@ exports.getComentaries = (req, res) => {
       });
     });
 };
+
+exports.createComentary = async (req,res) => {
+  try {
+    // Verifica si el producto existe antes de crear el comentario
+    const product = await db.product.findByPk(req.params.productId);
+    if (!product) {
+      console.log(`El producto con el ID ${req.params.productId} no existe.`);
+      return;
+    }
+
+    // Crea el comentario y asocia el producto
+    await Comentary.create({
+      description: description,
+      productId: req.params.productId,
+    });
+
+    console.log('Comentario creado:');
+  } catch (error) {
+    console.error('Error al crear el comentario:', error);
+  }
+};

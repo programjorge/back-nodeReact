@@ -16,6 +16,8 @@ module.exports = app => {
 
   router.get("/comentaries/:productId", Comentaries.getComentaries);
 
+  router.post("/comentaries", Comentaries.createComentary);
+
 
   // // Retrieve all published Tutorials
   // router.get("/published", tutorials.findAllPublished);
