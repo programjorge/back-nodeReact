@@ -40,6 +40,7 @@ db.sequelize.sync({ force: true })
       db.comentary.bulkCreate([
         {description: "porfin, estaba esperando con ansias esta actualizacion de graficos", productId:1},
         {description: "porfin, estaba esperando con ansias esta actualizacion de graficos2", productId:1},
+        {description: "igual de buenas que las otras plays", productId:2},
       ])
     )
     console.log("Synced db.");
