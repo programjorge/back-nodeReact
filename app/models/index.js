@@ -23,9 +23,13 @@ db.user = require("./User.model.js")(sequelize, Sequelize);
 db.category = require("./categories.model.js")(sequelize, Sequelize);
 db.product = require("./products.model.js")(sequelize, Sequelize);
 db.comentary = require("./comentary.model.js")(sequelize, Sequelize);
+db.rating = require("./Rating.model.js")(sequelize, Sequelize);
+db.ProductRating = require("./productRating.model.js")(sequelize, Sequelize);
 
 //las relaciones de las tablas
 db.product.belongsTo(db.category, { foreignKey: 'categoryId' });
-db.comentary.belongsTo(db.product, { foreignKey: 'productId' })
+db.comentary.belongsTo(db.product, { foreignKey: 'productId' });
+db.product.belongsToMany(db.rating, { through: db.ProductRating, unique:false, }); // Cambio de "products" a "product"
+db.rating.belongsToMany(db.product, { through: db.ProductRating, unique:false, });
 
 module.exports = db;

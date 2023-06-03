@@ -8,6 +8,9 @@ module.exports = (sequelize, Sequelize) => {
       },
       image:{
         type: Sequelize.STRING
+      },
+      description :{
+        type: Sequelize.TEXT
       }
     });
     // Products.associate = models =>{

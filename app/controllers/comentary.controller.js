@@ -1,5 +1,6 @@
 const db = require("../models");
 const Comentary = db.comentary;
+const Products = db.product
 const Op = db.Sequelize.Op;
 
 exports.getComentaries = (req, res) => {
@@ -29,20 +30,23 @@ exports.getComentaries = (req, res) => {
 exports.createComentary = async (req,res) => {
   try {
     // Verifica si el producto existe antes de crear el comentario
-    const product = await db.product.findByPk(req.params.productId);
+    console.log(req.body)
+    const product = await Products.findByPk(req.body.productId);
     if (!product) {
-      console.log(`El producto con el ID ${req.params.productId} no existe.`);
+      console.log(`El producto con el ID ${req.body.productId} no existe.`);
       return;
     }
 
     // Crea el comentario y asocia el producto
     await Comentary.create({
-      description: description,
-      productId: req.params.productId,
-    });
-
+      description: req.body.description,
+      productId: req.body.productId,
+    })
+    .then(data =>{
+      return res.send(data);
+    })
     console.log('Comentario creado:');
   } catch (error) {
-    console.error('Error al crear el comentario:', error);
+    throw error
   }
 };
