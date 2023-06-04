@@ -29,7 +29,13 @@ db.ProductRating = require("./productRating.model.js")(sequelize, Sequelize);
 //las relaciones de las tablas
 db.product.belongsTo(db.category, { foreignKey: 'categoryId' });
 db.comentary.belongsTo(db.product, { foreignKey: 'productId' });
-db.product.belongsToMany(db.rating, { through: db.ProductRating, unique:false, }); // Cambio de "products" a "product"
-db.rating.belongsToMany(db.product, { through: db.ProductRating, unique:false, });
+// db.product.belongsToMany(db.rating, { through: db.ProductRating }); 
+// db.rating.belongsToMany(db.product, { through: db.ProductRating  });
+db.product.hasMany(db.ProductRating)
+db.ProductRating.belongsTo(db.product)
+db.rating.hasMany(db.ProductRating)
+db.ProductRating.belongsTo(db.rating)
+
+
 
 module.exports = db;

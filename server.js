@@ -51,10 +51,8 @@ db.sequelize.sync({ force: true })
         {ProductId:2,RatingId:4},
         {ProductId:2,RatingId:3},
         {ProductId:3,RatingId:2},
-        {ProductId:4,RatingId:4},
-        {ProductId:4,RatingId:5},
         {ProductId:5,RatingId:1},
-        {ProductId:5,RatingId:2},
+        {ProductId:5,RatingId:1},
       ])
     ).then(
       db.comentary.bulkCreate([
