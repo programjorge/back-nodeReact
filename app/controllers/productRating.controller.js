@@ -16,3 +16,18 @@ exports.findAll = (req, res) => {
         });
       });
   };
+  exports.createRating = async (req,res) => {
+    try {
+      console.log(req.body)
+      await ratingProduct.create({
+        ProductId: req.body.ProductId,
+        RatingId: req.body.RatingId,
+      })
+      .then(data =>{
+        return res.send(data);
+      })
+    } catch (error) {
+      throw error
+    }
+  };
+  

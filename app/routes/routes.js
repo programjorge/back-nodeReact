@@ -21,6 +21,8 @@ module.exports = app => {
 
   router.get("/ratings", rating.findAll)
 
+  router.post("/ratings", rating.createRating);
+
   // // Retrieve all published Tutorials
   // router.get("/published", tutorials.findAllPublished);
 
