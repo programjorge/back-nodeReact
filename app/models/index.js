@@ -26,10 +26,11 @@ db.comentary = require("./comentary.model.js")(sequelize, Sequelize);
 db.rating = require("./Rating.model.js")(sequelize, Sequelize);
 db.ProductRating = require("./productRating.model.js")(sequelize, Sequelize);
 db.Pedidos = require("./pedidos.model.js")(sequelize, Sequelize);
-
+db.registroPedidos =  require("./registroPedidos.model.js")(sequelize, Sequelize);
 //las relaciones de las tablas
 db.product.belongsTo(db.category, { foreignKey: 'categoryId' });
 db.comentary.belongsTo(db.product, { foreignKey: 'productId' });
+db.registroPedidos.belongsTo(db.user, {foreignKey: 'userId'});
 
 db.product.hasMany(db.ProductRating)
 db.ProductRating.belongsTo(db.product)

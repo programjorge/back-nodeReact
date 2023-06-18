@@ -3,6 +3,8 @@ module.exports = app => {
   const Products = require("../controllers/Products.controller.js")
   const Comentaries = require("../controllers/comentary.controller.js")
   const rating = require ("../controllers/productRating.controller.js") 
+  const pedidos = require("../controllers/pedidos.controller.js")
+  const registroPedidos = require("../controllers/registroPedidos.controller.js")
 
   var router = require("express").Router();
   // Create a new User
@@ -22,6 +24,12 @@ module.exports = app => {
   router.get("/ratings", rating.findAll)
 
   router.post("/ratings", rating.createRating);
+
+  router.post("/pedidos", pedidos.createPedido);
+  
+  router.get("/pedidos", pedidos.findAll)
+
+  router.post("/registro/pedidos", registroPedidos.createPedido);
 
   // // Retrieve all published Tutorials
   // router.get("/published", tutorials.findAllPublished);

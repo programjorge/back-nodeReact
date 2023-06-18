@@ -1,9 +1,9 @@
 const db = require("../models");
-const pedidos = db.Pedidos;
+const registroPedidos = db.registroPedidos;
 const Op = db.Sequelize.Op;
 
 exports.findAll = (req, res) => {
-    pedidos.findAll()
+    registroPedidos.findAll()
       .then(data => {
         res.send(data);
       })
@@ -17,16 +17,17 @@ exports.findAll = (req, res) => {
 
   exports.createPedido = async (req,res) => {
     try {
-      console.log(req.body)
-        await pedidos.create({
+        let totalProductos = req.body.NumeroProductos
+      for(let i = 0; i<totalProductos; i++){
+        await registroPedidos.create({
             ProductId: req.body.ProductId,
-            UserId: req.body.userId,
+            userId: req.body.userId,
           })
           .then(data =>{
             return res.send(data);
           })
+      }
     } catch (error) {
       throw error
     }
   };
-  
