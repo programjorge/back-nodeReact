@@ -17,16 +17,13 @@ exports.findAll = (req, res) => {
 
   exports.createPedido = async (req,res) => {
     try {
-        let totalProductos = req.body.NumeroProductos
-      for(let i = 0; i<totalProductos; i++){
         await registroPedidos.create({
-            ProductId: req.body.ProductId,
+            pedido: req.body.pedido,
             userId: req.body.userId,
           })
           .then(data =>{
             return res.send(data);
           })
-      }
     } catch (error) {
       throw error
     }

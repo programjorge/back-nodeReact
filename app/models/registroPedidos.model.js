@@ -6,7 +6,7 @@ module.exports = (sequelize, Sequelize) => {
         autoIncrement: true
       },
       pedido: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       }
       });
     return registroPedidos;

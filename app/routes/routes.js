@@ -27,9 +27,11 @@ module.exports = app => {
 
   router.post("/pedidos", pedidos.createPedido);
   
-  router.get("/pedidos", pedidos.findAll)
+  router.get("/pedidos", pedidos.findAll);
 
   router.post("/registro/pedidos", registroPedidos.createPedido);
+
+  router.get("/registro/pedidos", registroPedidos.findAll);
 
   // // Retrieve all published Tutorials
   // router.get("/published", tutorials.findAllPublished);
