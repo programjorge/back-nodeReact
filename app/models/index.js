@@ -32,15 +32,15 @@ db.product.belongsTo(db.category, { foreignKey: 'categoryId' });
 db.comentary.belongsTo(db.product, { foreignKey: 'productId' });
 db.registroPedidos.belongsTo(db.user, {foreignKey: 'userId'});
 
-db.product.hasMany(db.ProductRating)
-db.ProductRating.belongsTo(db.product)
-db.rating.hasMany(db.ProductRating)
-db.ProductRating.belongsTo(db.rating)
+db.product.hasMany(db.ProductRating);
+db.ProductRating.belongsTo(db.product);
+db.rating.hasMany(db.ProductRating);
+db.ProductRating.belongsTo(db.rating);
 
-db.user.hasMany(db.Pedidos)
-db.Pedidos.belongsTo(db.user)
-db.product.hasMany(db.Pedidos)
-db.Pedidos.belongsTo(db.product)
+db.user.hasMany(db.Pedidos);
+db.Pedidos.belongsTo(db.user);
+db.product.hasMany(db.Pedidos);
+db.Pedidos.belongsTo(db.product);
 
 
 module.exports = db;

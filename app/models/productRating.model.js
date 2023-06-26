@@ -1,6 +1,3 @@
-const rating = require("./Rating.model");
-const product = require("./products.model");
-
 module.exports = (sequelize, Sequelize) => {
     const ProductRating = sequelize.define('ProductRating', {
       id: {

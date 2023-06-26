@@ -18,8 +18,5 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.TEXT
       }
     });
-    // Products.associate = models =>{
-    //     Products.belongsTo(models.Category, { foreignKey: 'categoryId' });
-    // }
     return Products;
   };
